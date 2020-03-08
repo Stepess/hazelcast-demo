@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+
+  hazelcast-worker-1:
+    image: hazelcast/hazelcast:4.0
+
+  hazelcast-worker-2:
+    image: hazelcast/hazelcast:4.0
+
+  hazelcast-worker-3:
+    image: hazelcast/hazelcast:4.0
+
+  hazelcast-master:
+    image: hazelcast/management-center:4.0
+    ports:
+      - 8081:8080
