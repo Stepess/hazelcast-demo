@@ -1,13 +1,19 @@
 package ua.stepess.hazelcast.hazelcastdemo.web;
 
 import com.hazelcast.core.HazelcastInstance;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Map;
 
+import static org.springframework.http.ResponseEntity.created;
+
 @RestController
-@RequestMapping("/api/v1/map")
+@RequestMapping(MapController.CONTROLLER_BASE_URL)
 public class MapController {
+
+    public static final String CONTROLLER_BASE_URL = "/api/v1/map";
 
     private final HazelcastInstance hazelcastInstance;
 
@@ -16,20 +22,27 @@ public class MapController {
     }
 
     @PostMapping("/{key}")
-    public String write(@PathVariable String key, @RequestBody String content) {
-        var map = hazelcastInstance.getMap("data");
-        map.set(key, content);
-        return "putted";
+    public ResponseEntity<String> write(@PathVariable String key,
+                                        @RequestBody String content,
+                                        UriComponentsBuilder uriBuilder) {
+        hazelcastInstance.getMap("data")
+                .set(key, content);
+
+        var uri = uriBuilder.path(CONTROLLER_BASE_URL + "/{key}")
+                .build(key);
+
+        return created(uri)
+                .body(content);
     }
 
     @GetMapping("/{key}")
     public String read(@PathVariable String key) {
-        var map = hazelcastInstance.<String, String>getMap("data");
-        return map.get(key);
+        return hazelcastInstance.<String, String>getMap("data")
+                .get(key);
     }
 
     @GetMapping
     public Map<String, String> readAll() {
-        return hazelcastInstance.<String, String>getMap("data");
+        return hazelcastInstance.getMap("data");
     }
 }
