@@ -1,1 +1,1 @@
-./gradlew clean bootRun -Dhazelcast.port=5701
+./gradlew clean bootRun --args='--hazelcast.port=5701'

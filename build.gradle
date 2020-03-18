@@ -8,8 +8,6 @@ group = 'ua.stepess.hazelcast'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-bootRun.systemProperties = System.properties
-
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
