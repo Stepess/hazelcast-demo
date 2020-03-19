@@ -5,12 +5,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import ua.stepess.hazelcast.hazelcastdemo.config.properties.HazelcastProperties;
 
+@Profile("hz-instance")
 @Configuration
 @RequiredArgsConstructor
 @EnableConfigurationProperties(HazelcastProperties.class)
-public class HazelcastConfig {
+public class HazelcastInstanceConfig {
 
     private final HazelcastProperties properties;
 

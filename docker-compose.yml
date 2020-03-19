@@ -3,11 +3,15 @@ services:
 
   hazelcast-worker-1:
     image: hazelcast/hazelcast:4.0
+    environment:
+      - JAVA_OPTS="-Dhazelcast.local.publicAddress=192.168.1.5:5701"
     ports:
       - 5701:5701
 
   hazelcast-worker-2:
     image: hazelcast/hazelcast:4.0
+    environment:
+      - JAVA_OPTS="-Dhazelcast.local.publicAddress=192.168.1.5:5702"
     ports:
       - 5702:5701
 
