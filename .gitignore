@@ -30,3 +30,6 @@ out/
 
 ### VS Code ###
 .vscode/
+.DS_Store
+bin/.DS_Store
+bin/hazelcast-3.12.6/

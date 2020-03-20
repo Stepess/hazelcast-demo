@@ -21,7 +21,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compile group: 'com.hazelcast', name: 'hazelcast-client', version: '3.12.6'
-	compile group: 'com.hazelcast', name: 'hazelcast-spring', version: '4.0'
+	//compile group: 'com.hazelcast', name: 'hazelcast-spring', version: '4.0'
 	compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.2.Final'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

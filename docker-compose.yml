@@ -2,20 +2,20 @@ version: '3.3'
 services:
 
   hazelcast-worker-1:
-    image: hazelcast/hazelcast:4.0
+    image: hazelcast/hazelcast:3.12.6
     environment:
-      - JAVA_OPTS="-Dhazelcast.local.publicAddress=192.168.1.5:5701"
+      - JAVA_OPTS="-Dhazelcast.local.publicAddress=192.168.1.10:5701"
     ports:
       - 5701:5701
 
   hazelcast-worker-2:
-    image: hazelcast/hazelcast:4.0
+    image: hazelcast/hazelcast:3.12.6
     environment:
-      - JAVA_OPTS="-Dhazelcast.local.publicAddress=192.168.1.5:5702"
+      - JAVA_OPTS="-Dhazelcast.local.publicAddress=192.168.1.10:5702"
     ports:
       - 5702:5701
 
-  hazelcast-master:
-    image: hazelcast/management-center:4.0
-    ports:
-      - 8081:8080
+  #hazelcast-master:
+   # image: hazelcast/management-center:4.0
+    #ports:
+     # - 8081:8080
