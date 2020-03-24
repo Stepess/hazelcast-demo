@@ -1,0 +1,11 @@
+hazelcast:
+
+  group:
+    name: dev
+    password: dev-pass
+
+  management-center:
+    enabled: true
+    scripting-enabled: false
+    update-interval: 2
+    url: http://hazelcast-master:8080/hazelcast-mancenter
