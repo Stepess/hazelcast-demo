@@ -12,7 +12,7 @@ import ua.stepess.hazelcast.hazelcastdemo.config.properties.HazelcastProperties;
 @EnableConfigurationProperties(HazelcastProperties.class)
 public class HazelcastClientConfig {
 
-    private static final String HOST = "192.168.1.10";
+    private static final String HOST = "localhost";
     private static final String COLON = ":";
 
     private final HazelcastProperties properties;

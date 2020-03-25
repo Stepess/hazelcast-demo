@@ -3,6 +3,10 @@ services:
 
   hazelcast-master:
     image: hazelcast/management-center:3.12.6
+    environment:
+      - MC_INIT_CMD=./mc-conf.sh create-user -H=/data -n=admin -p=myPassword11 -r=admin -v
+    volumes:
+      - ./manager-data:/data
     ports:
       - 8082:8080
 

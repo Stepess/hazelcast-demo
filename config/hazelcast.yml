@@ -9,3 +9,7 @@ hazelcast:
     scripting-enabled: false
     update-interval: 2
     url: http://hazelcast-master:8080/hazelcast-mancenter
+
+  map:
+    default:
+      backup-count: 2

@@ -33,3 +33,4 @@ out/
 .DS_Store
 bin/.DS_Store
 bin/hazelcast*
+manager-data/
