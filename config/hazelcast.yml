@@ -13,3 +13,7 @@ hazelcast:
   map:
     default:
       backup-count: 2
+
+  queue:
+    bounded:
+      max-size: 10

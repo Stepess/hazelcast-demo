@@ -7,7 +7,9 @@ import com.hazelcast.core.IQueue;
 
 public class ConsumerMember {
 
-    public static void main( String[] args ) throws Exception {
+    public static final String QUEUE_NAME = "queue";
+
+    public static void main(String[] args ) throws Exception {
         var config = new ClientConfig();
 
         var address = "localhost:" + args[0];
@@ -15,7 +17,7 @@ public class ConsumerMember {
                 .addAddress(address);
 
         HazelcastInstance hz = HazelcastClient.newHazelcastClient(config);
-        IQueue<Integer> queue = hz.getQueue( "queue" );
+        IQueue<Integer> queue = hz.getQueue(QUEUE_NAME);
         while ( true ) {
             int item = queue.take();
             System.out.println( "Consumed: " + item );
