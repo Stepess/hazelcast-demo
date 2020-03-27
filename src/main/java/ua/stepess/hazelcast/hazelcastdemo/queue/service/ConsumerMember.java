@@ -1,4 +1,4 @@
-package ua.stepess.hazelcast.hazelcastdemo.queue;
+package ua.stepess.hazelcast.hazelcastdemo.queue.service;
 
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
@@ -7,17 +7,15 @@ import com.hazelcast.core.IQueue;
 
 public class ConsumerMember {
 
-    public static final String QUEUE_NAME = "queue";
-
-    public static void main(String[] args ) throws Exception {
+    public void consume(String queueName, String port) throws Exception {
         var config = new ClientConfig();
 
-        var address = "localhost:" + args[0];
+        var address = "localhost:" + port;
         config.getNetworkConfig()
                 .addAddress(address);
 
         HazelcastInstance hz = HazelcastClient.newHazelcastClient(config);
-        IQueue<Integer> queue = hz.getQueue(QUEUE_NAME);
+        IQueue<Integer> queue = hz.getQueue(queueName);
         while ( true ) {
             int item = queue.take();
             System.out.println( "Consumed: " + item );

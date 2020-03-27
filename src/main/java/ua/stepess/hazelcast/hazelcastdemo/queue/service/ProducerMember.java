@@ -1,4 +1,4 @@
-package ua.stepess.hazelcast.hazelcastdemo.queue;
+package ua.stepess.hazelcast.hazelcastdemo.queue.service;
 
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
@@ -7,9 +7,7 @@ import com.hazelcast.core.IQueue;
 
 public class ProducerMember {
 
-    public static final String QUEUE_NAME = "queue";
-
-    public static void main(String[] args ) throws Exception {
+    public void produce(String queueName) throws Exception {
         var config = new ClientConfig();
 
         var address = "localhost:5701";
@@ -17,7 +15,7 @@ public class ProducerMember {
                 .addAddress(address);
 
         HazelcastInstance hz = HazelcastClient.newHazelcastClient(config);
-        IQueue<Integer> queue = hz.getQueue(QUEUE_NAME);
+        IQueue<Integer> queue = hz.getQueue(queueName);
         for ( int k = 1; k < 100; k++ ) {
             queue.put( k );
             System.out.println( "Producing: " + k );
