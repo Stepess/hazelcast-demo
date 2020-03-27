@@ -2,9 +2,9 @@ package ua.stepess.hazelcast.hazelcastdemo.queue;
 
 import ua.stepess.hazelcast.hazelcastdemo.queue.service.ProducerMember;
 
-public class QueueProducerRunner {
+import static ua.stepess.hazelcast.hazelcastdemo.Constants.QUEUE_NAME;
 
-    public static final String QUEUE_NAME = "queue";
+public class QueueProducerRunner {
 
     public static void main(String[] args) throws Exception {
         ProducerMember producerMember = new ProducerMember();
